@@ -17,7 +17,7 @@ const {Server}=require('socket.io')
 const io=new Server(server)
 
 io.on('connection',(socket)=>{
-    console.log(socket.id);
+    console.log(`user connected with id ${socket.id}`);
     socket.on('message 1',(userMessage)=>{
         console.log(userMessage);
         socket.broadcast.emit('recieve',userMessage)/* this way sender will not get it's own msg */
