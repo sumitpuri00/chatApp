@@ -20,8 +20,8 @@ io.on('connection',(socket)=>{
     console.log(socket.id);
     socket.on('message 1',(userMessage)=>{
         console.log(userMessage);
-        socket.broadcast.emit('recieve',userMessage)
-        // io.emit('recieve',userMessage)
+        socket.broadcast.emit('recieve',userMessage)/* this way sender will not get it's own msg */
+        // io.emit('recieve',userMessage) /* this way all will get the msg even the sender */
     })
 
     
