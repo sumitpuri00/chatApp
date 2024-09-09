@@ -8,7 +8,7 @@ app.use(express.json())
 app.set('view engine', 'ejs')
 const path = require('path')
 app.use(express.static(path.join(__dirname,'public')))/* this is app.use not app.set  */
-
+app.set('views', path.join(__dirname, 'views'));/* this will look for views/chat.ejs */
 const http=require('http')
 
 const server=http.createServer(app)
