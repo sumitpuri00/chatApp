@@ -7,7 +7,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.set('view engine', 'ejs')
 const path = require('path')
-app.use(express.static(path.join(__dirname,'views')))/* this is app.use not app.set and also we use "views instead of public because "views" is i believe is  default  */
+app.use(express.static(path.join(__dirname,'public')))/* this is app.use not app.set  */
 
 const http=require('http')
 
@@ -23,9 +23,9 @@ io.on('connection',(socket)=>{
         socket.broadcast.emit('recieve',userMessage)/* this way sender will not get it's own msg */
         // io.emit('recieve',userMessage) /* this way all will get the msg even the sender */
     })
-    
-
-    
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    });
     
 })
 
