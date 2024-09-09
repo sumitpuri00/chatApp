@@ -7,7 +7,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.set('view engine', 'ejs')
 const path = require('path')
-app.set(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname,'views')))/* this is app.use not app.set and also we use "views instead of public because "views" is i believe is  default  */
 
 const http=require('http')
 
