@@ -23,13 +23,14 @@ io.on('connection',(socket)=>{
         socket.broadcast.emit('recieve',userMessage)/* this way sender will not get it's own msg */
         // io.emit('recieve',userMessage) /* this way all will get the msg even the sender */
     })
+    
 
     
     
 })
 
 app.get('/',(req,res)=>{
-    res.render('chat')
+    res.render('chat',{sumit:'chat'})
 })
 
 server.listen('3000',(err)=>{
