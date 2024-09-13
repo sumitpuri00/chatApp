@@ -1,8 +1,11 @@
 // const socket=io()
-const socket = io({
+// const socket = io({
+//     transports: ['websocket', 'polling']
+// });
+
+const socket = io('https://chat-with-friends-eta.vercel.app/', { // Replace with your backend URL
     transports: ['websocket', 'polling']
 });
-
 
 
 const btn=document.getElementById('button')
