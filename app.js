@@ -2,7 +2,7 @@ const express=require('express')
 const app=express()
 
 require('dotenv').config();
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -15,7 +15,15 @@ const http=require('http')
 const server=http.createServer(app)
 const {Server}=require('socket.io')
 
-const io=new Server(server)
+// const io=new Server(server)
+const io = new Server(server, {
+    cors: {
+        origin: '*', // Or your specific frontend domain
+        methods: ['GET', 'POST']
+    },
+    transports: ['websocket', 'polling'] // Add polling as a fallback
+});
+
 
 io.on('connection',(socket)=>{
     console.log(`user connected with id ${socket.id}`);
@@ -36,7 +44,7 @@ app.get('/',(req,res)=>{
 
 
 
-server.listen(3000,(err)=>{
-    console.log(`Server is running on port 3000`);
+server.listen(port,(err)=>{
+    console.log(`Server is running on port ${port} `);
     
 })

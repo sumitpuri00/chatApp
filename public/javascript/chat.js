@@ -1,4 +1,8 @@
-const socket=io()
+// const socket=io()
+const socket = io({
+    transports: ['websocket', 'polling']
+});
+
 
 
 const btn=document.getElementById('button')
