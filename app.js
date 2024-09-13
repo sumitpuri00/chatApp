@@ -16,22 +16,15 @@ const server=http.createServer(app)
 const {Server}=require('socket.io')
 
 // const io=new Server(server)
-// const io = new Server(server, {
-//     cors: {
-//         origin: '*', // Or your specific frontend domain
-//         methods: ['GET', 'POST']
-//     },
-//     transports: ['websocket', 'polling'] // Add polling as a fallback
-// });
+
 const io = new Server(server, {
     cors: {
-        origin: 'https://chat-with-friends-eta.vercel.app/', // Replace with your actual Vercel URL
-        methods: ['GET', 'POST'],
-        credentials: true
+        origin: '*', // Or your specific frontend domain
+        methods: ['GET', 'POST']
     },
-    transports: ['websocket', 'polling']
+    transports: ['websocket', 'polling'] // Add polling as a fallback
 });
-
+ 
 
 
 io.on('connection',(socket)=>{
