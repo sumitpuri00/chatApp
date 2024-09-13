@@ -41,7 +41,8 @@ io.on('connection',(socket)=>{
 })
 
 app.get('/',(req,res)=>{
-    res.render('chat',{sumit:'chat'})
+    // res.render('chat',{sumit:'chat'})
+    res.sendFile(path.join(__dirname,'public','chat.html'))
 })
 
 
