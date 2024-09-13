@@ -2,7 +2,7 @@ const express=require('express')
 const app=express()
 
 require('dotenv').config();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -36,7 +36,7 @@ app.get('/',(req,res)=>{
 
 
 
-server.listen(port,(err)=>{
-    console.log(`Server is running on port ${port}`);
+server.listen(3000,(err)=>{
+    console.log(`Server is running on port 3000`);
     
 })
